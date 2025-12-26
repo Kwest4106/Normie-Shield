@@ -1,0 +1,31 @@
+// api/boost-on-x.js
+const BEARER = process.env.X_BEARER_TOKEN;
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).end();
+
+  const { story, username, tx_link } = req.body;
+
+  let text = `🛡️ NORMIE SAVED 🛡️\n\n@${username} just revoked risky approvals and saved their bag using @NormieShield.\n\n"${story.slice(0,140)}..."\n\nOffline-first. Open-source. No KYC.\nhttps://normieshield.xyz\n#SolanaSafety`;
+
+  if (tx_link) text += `\nTx: ${tx_link}`;
+
+  try {
+    const twit = await fetch('https://api.twitter.com/2/tweets', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${BEARER}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text }),
+    });
+
+    if (!twit.ok) throw new Error(await twit.text());
+    res.status(200).json({ success: true });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ success: false });
+  }
+}
+
+export const config = { api: { runtime: 'edge' } };
