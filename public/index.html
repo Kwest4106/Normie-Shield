@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Normie Shield: Offline-first Solana wallet scanner. Detect risky approvals, one-tap revoke, fund free Grok scans. Armor your wallet — install now.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Normie Shield — Wallet Armor for Solana</title>
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- FULLY ENCODED inline SVG icons - no more validation errors on refresh -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22grad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2523003366%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2523000088%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22glow%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%20result%3D%22blur%22/%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22blur%22/%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%2523000%22/%3E%3Cpath%20d%3D%22M50%208%20L92%2028%20L92%2072%20L50%2092%20L8%2072%20L8%2028%20Z%22%20fill%3D%22url(%2523grad)%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%226%22%20filter%3D%22url(%2523glow)%22%20opacity%3D%220.95%22/%3E%3Cpath%20d%3D%22M50%2035%20L65%2050%20L50%2065%20L35%2050%20Z%22%20fill%3D%22none%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%223%22%20filter%3D%22url(%2523glow)%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2218%22%20fill%3D%22none%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%222%22%20filter%3D%22url(%2523glow)%22/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22grad%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2523003366%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2523000088%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22glow%22%3E%3CfeGaussianBlur%20stdDeviation%3D%225%22%20result%3D%22blur%22/%3E%3CfeMerge%3E%3CfeMergeNode%20in%3D%22blur%22/%3E%3CfeMergeNode%20in%3D%22SourceGraphic%22/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%2523000%22/%3E%3Cpath%20d%3D%22M50%208%20L92%2028%20L92%2072%20L50%2092%20L8%2072%20L8%2028%20Z%22%20fill%3D%22url(%2523grad)%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%226%22%20filter%3D%22url(%2523glow)%22%20opacity%3D%220.95%22/%3E%3Cpath%20d%3D%22M50%2035%20L65%2050%20L50%2065%20L35%2050%20Z%22%20fill%3D%22none%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%223%22%20filter%3D%22url(%2523glow)%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2218%22%20fill%3D%22none%22%20stroke%3D%22%252300FFFF%22%20stroke-width%3D%222%22%20filter%3D%22url(%2523glow)%22/%3E%3C/svg%3E">
+
+  <meta name="theme-color" content="#00FFFF">
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Open Graph / Twitter Cards -->
+  <meta property="og:title" content="Normie Shield — Wallet Armor for Solana" />
+  <meta property="og:description" content="Offline-first PWA: Scan approvals, one-tap revoke risks, fund free Grok scans. Elite armored wallets only 🛡️" />
+  <meta property="og:image" content="https://normie-shield.netlify.app/og-preview.png" />
+  <meta property="og:image:alt" content="Normie Shield neon shield logo with health gauge" />
+  <meta property="og:url" content="https://normie-shield.netlify.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Normie Shield" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@NormieShield" />
+  <meta name="twitter:creator" content="@NormieShield" />
+  <meta name="twitter:title" content="Normie Shield — Wallet Armor for Solana" />
+  <meta name="twitter:description" content="Connect → Scan → Revoke → Armor up. Pay it forward with community Grok scans 🫡" />
+  <meta name="twitter:image" content="https://normie-shield.netlify.app/og-preview.png" />
+  <meta name="twitter:image:alt" content="Normie Shield neon shield logo with health gauge" />
+</head>
+<body>
+  <header>
+    <h1>🛡️ Normie Shield</h1>
+    <p>Your crypto seatbelt — install & stay safe</p>
+  </header>
+  <main>
+    <section id="connect">
+      <button id="connectWallet">Connect Wallet</button>
+      <p id="walletStatus">Not connected</p>
+      <p style="margin-top:1.5rem; opacity:0.8; max-width:400px; margin-left:auto; margin-right:auto;">
+        Connect → Scan approval risks → One-tap revoke → Fund free Grok scans for the community 🫡
+      </p>
+    </section>
+
+    <section id="apiKeySection" class="hidden">
+      <h2>Grok API Key (Optional)</h2>
+      <p>For real Grok-powered analysis instead of basic heuristic 🧠</p>
+      <input 
+        type="password" 
+        id="grokApiKey" 
+        placeholder="xai-..." 
+        style="width:min(90%, 360px); 
+               max-width:360px; 
+               padding:0.8rem 1rem; 
+               margin:1rem auto; 
+               display:block; 
+               background:#111; 
+               color:#fff; 
+               border:1px solid #333; 
+               border-radius:12px; 
+               font-size:1rem; 
+               box-sizing:border-box;">
+      <button 
+        id="saveApiKey" 
+        style="padding:0.8rem 2rem; 
+               font-size:1rem; 
+               margin-top:0.5rem;">
+        Save Key
+      </button>
+      <p><small>Get your key at <a href="https://x.ai/api" target="_blank">x.ai/api</a></small></p>
+    </section>
+
+    <section id="features" class="hidden">
+      <h2>Tools</h2>
+      <button id="scanRevoke">Scan & Revoke Risks</button>
+      <button id="simulateLink">Check Suspicious Link</button>
+      <button id="honeypotMode">Toggle Honeypot Bait</button>
+      <div id="results"></div>
+    </section>
+
+    <section id="healthScore" class="hidden">
+      <h2>Wallet Health Score</h2>
+      <div id="scoreCircle">
+        <svg>
+          <defs>
+            <linearGradient id="gaugeGrad">
+              <stop offset="0%" stop-color="#00FFFF"/>
+              <stop offset="100%" stop-color="#00FF00"/>
+            </linearGradient>
+          </defs>
+          <circle class="bg"></circle>
+          <circle class="fill"></circle>
+        </svg>
+        <div id="scoreNumber">—</div>
+      </div>
+      <p id="scoreText">Connect wallet to scan</p>
+      <ul id="fixList"></ul>
+      <button id="revokeButton" class="hidden" style="background:#FF0000; margin-top:1rem; font-weight:bold;">
+        ⚔️ One-Tap Revoke All Risks
+      </button>
+      <button id="shareScore">Share on X</button>
+      
+      <!-- NEW: Share Save Story button -->
+      <button id="shareStory" style="margin-top:1rem; background:#00FFFF; color:#000; font-weight:bold;">
+        📣 Share Your Save Story
+      </button>
+      
+      <p id="eliteText" style="margin-top:1rem; font-size:1.4rem; color:#00FF88; font-weight:bold;"></p>
+    </section>
+
+    <section id="tipSection">
+      <h2>Fund Free Grok Scans 🧠</h2>
+      <p>Community pool: <strong id="communityBalance">loading...</strong></p>
+      <button id="tipButton" style="background:#00FF00; color:#000; font-weight:bold;">
+        🫡 Fund Free Grok Scans
+      </button>
+      <p><small>Every tip unlocks real Grok-powered analysis for normies who have no key<br>Pay it forward — armor the entire chain</small></p>
+      <p style="margin-top:1rem;"><a href="/fund.html" style="color:#00FF00;">→ View full progress & impact</a></p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
